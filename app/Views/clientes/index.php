@@ -1,8 +1,46 @@
+<div class="modal fade" id="modal-confirmacao-delete">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form action="/clientes/excluir" method="post">
+              <div class="modal-header">
+              <h4 class="modal-title">Confirmar exclusão</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Deseja realmente excluir este Cliente?</p>
+              <input type="hidden" id="id_cliente" name="id_cliente" value="">
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Sim</button>
+            </div>
+            </form>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
+         <?php
+         $session = session();
+         $alert = $session->get('alert');
+         ?>
+        <?php if(isset($alert) && $alert =='success_create'): ?>
+          <div class="col-lg-12">
+              <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  Cliente cadastrado com sucesso!!
+                </div>
+              </div>
+          
+        <?php endif; ?>
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Clientes</h1>
@@ -37,7 +75,7 @@
                       <th>Data de Nascimento</th>
                       <th>Telefone</th>
                       <th>Endereço</th>
-                      <th>Limnite de Crédito</th>
+                      <th>Limite de Crédito</th>
                       <th>Ações</th>
                     </tr>
                   </thead>
@@ -51,7 +89,9 @@
                             <td><?= $cliente['endereco'] ?></td>
                             <td><?= $cliente['limite_de_credito'] ?></td>
                             <td>
-                              <a href="clientes/editar/<?= $cliente['id_cliente']?>" class="btn btn-warning">Editar</a>
+                              <a href="/clientes/ver/<?= $cliente['id_cliente']?>" class="btn btn-primary">Ver</a>
+                              <a href="/clientes/editar/<?= $cliente['id_cliente']?>" class="btn btn-warning">Editar</a>
+                              <button type="button" class="btn btn-danger" onclick="document.getElementById('id_cliente').value = '<?= $cliente['id_cliente'] ?>'"  data-toggle="modal" data-target="#modal-confirmacao-delete">Excluir</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

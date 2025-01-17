@@ -52,8 +52,23 @@ Class Clientes extends Controller {
 
         $this->cliente_model->insert($dados);
 
+        $session = session();
+        $session -> setFlashData('alert','success_create');
+
         return redirect() -> to('clientes');
 
+    }
+
+
+    public function excluir ($id_cliente) {
+        
+        $id_cliente  = $this->request->getVar('id_cliente');
+
+        $this -> cliente_model
+        ->where('id_cliente', $id_cliente)
+        ->delete();
+
+        return redirect () ->to('/clientes');
     }
 
     public function editar ($id_cliente){
@@ -67,6 +82,21 @@ Class Clientes extends Controller {
         echo View('templates/header');
         echo View('clientes/editar',$data);
         echo View('templates/footer');
+    }
+
+    public function ver ($id_cliente){
+
+        $cliente = $this->cliente_model
+                                        ->where('id_cliente', $id_cliente)
+                                        ->first();
+
+        $data['cliente']  = $cliente;
+
+        echo View('templates/header');
+        echo View('clientes/ver', $data);
+        echo View('templates/footer');
+
+
     }
 
 
