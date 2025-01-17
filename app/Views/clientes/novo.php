@@ -9,10 +9,10 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="/clientes" class="btn btn-success" style="margin-right:15px">Voltar</a>
+                        <a href="/clientes" class="btn btn-success" style="margin-right:15px"><i class="nav-icon fas fa-backward"></i>  Voltar</a>
                         <li class="breadcrumb-item"><a href="/">Início</a></li>
                         <li class="breadcrumb-item"><a href="/clientes">Clientes</a></li>
-                        <li class="breadcrumb-item active">Novo</li>
+                        <li class="breadcrumb-item active"></i>Novo</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -67,7 +67,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                <button type="submit" class="btn btn-primary"><i class="nav-icon fas fa-save"></i> Cadastrar</button>
                             </div>
                         </form>
                     </div>

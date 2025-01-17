@@ -45,7 +45,10 @@ Class Clientes extends Controller {
                 ->where('id_cliente', $dados['id_cliente'])
                 ->set($dados)
                 ->update();
-            
+
+            $session = session();
+            $session->setFlashData('alert', 'success_update');
+
                 return redirect()->to("/clientes/editar/{$dados['id_cliente']}");
 
         endif;
@@ -67,6 +70,9 @@ Class Clientes extends Controller {
         $this -> cliente_model
         ->where('id_cliente', $id_cliente)
         ->delete();
+
+        $session = session();
+        $session -> setFlashData('alert','success_delete');
 
         return redirect () ->to('/clientes');
     }

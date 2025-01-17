@@ -9,7 +9,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="/clientes" class="btn btn-success" style="margin-right:15px">Voltar</a>
+                        <a href="/clientes" class="btn btn-success" style="margin-right:15px"><i class="nav-icon fas fa-backward"></i> Voltar</a>
                         <li class="breadcrumb-item"><a href="/">Início</a></li>
                         <li class="breadcrumb-item"><a href="/clientes">Clientes</a></li>
                         <li class="breadcrumb-item active">Novo</li>

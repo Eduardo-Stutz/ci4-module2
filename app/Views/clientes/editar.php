@@ -9,7 +9,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="/clientes" class="btn btn-success" style="margin-right:15px">Voltar</a>
+                        <a href="/clientes" class="btn btn-success" style="margin-right:15px"><i class="nav-icon fas fa-backward"></i> Voltar</a>
                         <li class="breadcrumb-item"><a href="/">Início</a></li>
                         <li class="breadcrumb-item"><a href="/clientes">Clientes</a></li>
                         <li class="breadcrumb-item active">Novo</li>
@@ -22,6 +22,24 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
+            <?php
+         $session = session();
+         $alert = $session->get('alert');
+         ?>
+         
+        <?php if(isset($alert)): ?>
+
+          <?php if ($alert == 'success_update'):?>
+              <div class="col-lg-12">
+              <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  Cliente atualizado com sucesso!!
+                </div>
+              </div>
+          
+            <?php endif; ?>
+            <?php endif; ?>
+        
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -68,7 +86,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-warning">Editar</button>
+                                <button type="submit" class="btn btn-warning"><i class="nav-icon fas fa-save"></i> Editar</button>
                             </div>
                         </form>
                     </div>

@@ -17,7 +17,7 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="/" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-home"></i>
                         <p>
                         Início
                         </p>
@@ -25,7 +25,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/clientes" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
                         Clientes
                         </p>
